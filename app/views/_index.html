@@ -1,0 +1,18 @@
+<section class="index">
+	<h1>Upcoming Shows</h1>
+
+	<table>
+		<tr>
+			<th>Date</th>
+			<th>Title</th>
+			<th>City, Country</th>
+			<th>Lineup</th>
+			<th>Flyer</th>
+		</tr>
+
+		<tr ng-repeat="show in shows.rows | orderBy : 'doc.date'" >
+			<td>{{show.doc.date | date : 'MMM dd, yyyy'}}</td>
+			<td>{{show.fields.title}}</td>
+		</tr>
+	</table>
+</section>
