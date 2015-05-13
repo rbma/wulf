@@ -11,13 +11,9 @@
 angular
   .module('bookingApp', [
     'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
     'ngSanitize',
     'ui.router',
-    'ngTouch',
-    'angular-datepicker'
+    'ngTouch'
   ])
   .config(function ($urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise('/');

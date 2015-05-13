@@ -393,6 +393,21 @@ module.exports = function (grunt) {
       }
     },
 
+    aws: grunt.file.readJSON('env.json'),
+
+    s3: {
+      options:{
+        accessKeyId: '<%= aws.accessKeyId %>',
+        secretAccessKey: '<%= aws.secretAccessKey %>',
+        bucket: '<%= aws.bucket %>'
+      },
+
+      build:{
+        cwd: 'dist/',
+        src: '**'
+      }
+    },
+
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
