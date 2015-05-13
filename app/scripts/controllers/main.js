@@ -11,7 +11,11 @@ angular.module('bookingApp').controller('MainCtrl', ['$scope', 'contentFarm', fu
 
 	$scope.show = {};
 
-	contentFarm.index().then(function(response){
+	var now = Date.now();
+
+
+
+	contentFarm.index(now).then(function(response){
 		$scope.shows = response;
 		console.log($scope.shows);
 	});

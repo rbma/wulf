@@ -10,8 +10,8 @@
 			<th>Flyer</th>
 		</tr>
 
-		<tr ng-repeat="show in shows.rows | orderBy : 'doc.date'" >
-			<td>{{show.doc.date | date : 'MMM dd, yyyy'}}</td>
+		<tr ng-repeat="show in shows.rows | orderBy : 'fields.eventdate'" >
+			<td>{{show.fields.eventdate | date : 'MMM dd, yyyy'}}</td>
 			<td>{{show.fields.title}}</td>
 		</tr>
 	</table>
