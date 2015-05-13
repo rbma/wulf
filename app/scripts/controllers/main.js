@@ -58,6 +58,8 @@ angular.module('bookingApp').controller('MainCtrl', ['$scope', '$window', 'conte
 		$scope.loading = false;
 
 		
+
+		
 		
 	});
 

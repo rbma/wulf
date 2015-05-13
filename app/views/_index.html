@@ -10,9 +10,9 @@
 
 		<div class="search-bar">
 			<i class="fa fa-search"></i>
-			<input type="text" ng-model="searchText" />
+			<input class="search-text" type="text" ng-model="searchText" />
 			<input class="date-pick" type="date" ng-model="date.startDate" />
-			<input class="date-pick" type="date" ng-model="date.endDate" />
+			<input class="date-pick" type="date" ng-model="date.endDate"/>
 		</div>
 	</nav>
 	
@@ -23,7 +23,7 @@
 			<th ng-click="orderByField='fields.title'; reverseSort = !reverseSort">Title</th>
 			<th ng-click="orderByField='doc.events[0].country'; reverseSort = !reverseSort">City, Country</th>
 			<th ng-click="orderByField='doc.lineup[0]'; reverseSort = !reverseSort">Headliner</th>
-			<th>Flyer</th>
+			<th class="flyer">Flyer</th>
 			
 		</tr>
 
@@ -32,7 +32,7 @@
 			<td>{{show.fields.title}}</td>
 			<td>{{show.doc.events[0].country}}</td>
 			<td>{{show.doc.lineup[0]}}</td>
-			<td><img ng-src="http://image.redbull.com/rbx00786/0001/1/1280/486/{{show.doc.posterImage.id}}"/></td>
+			<td class="flyer"><img ng-src="http://image.redbull.com/rbx00786/0001/1/1280/486/{{show.doc.posterImage.id}}"/></td>
 			
 		</tr>
 	</table>

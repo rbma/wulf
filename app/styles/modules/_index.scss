@@ -61,27 +61,40 @@
 			right: 5%;
 			width: 33%;
 			i{
-				display: inline-block;
+				display: none;
 				margin: 0;
 				padding: 0;
 				float: right;
+				@include mq("large"){
+					display: inline-block;
+				}
 			}
 			input{
 				outline: 0;
 				width: 90%;
 				border: 0;
 				background: transparent;
-				border-bottom: 5px solid $gray;
+				border-bottom: 2px solid $gray;
 				display: inline-block;
 				font-size: 1em;
 				font-family: 'Inconsolata';
+				&.search-text{
+					display: none;
+					@include mq("large"){
+						display: inline-block;
+					}
+				}
 				&.date-pick{
 					border-bottom: 0;
-					width: 40%;
-					display: inline-block;
-					float: left;
+					width: 100%;
+					float: none;
 					margin: 15px;
 					color: $gray;
+					display: block;
+					@include mq("large"){
+						width: 40%;
+						float: left;
+					}
 				}
 			}
 		}
@@ -128,7 +141,7 @@
 			}
 			td{
 				padding: 10px;
-				border-bottom: 5px solid $gray;
+				border-bottom: 2px solid $gray;
 				&.show-date{
 					font-weight: bold;
 					@include uppercase();
@@ -146,5 +159,12 @@
 				}
 			}
 		}
+	}
+}
+
+.flyer{
+	display: none;
+	@include mq("large"){
+		display: block;
 	}
 }
