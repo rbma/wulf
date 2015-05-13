@@ -17,17 +17,24 @@ angular.module('bookingApp').factory('contentFarm', function ($http, $q) {
       params: '&limit=200',
 
 
-      index: function(time){
+      index: function(startTime, endTime){
         var self = this;
+        var endPeriod;
+
+        if (endTime){
+          endPeriod = endTime;
+        }
+
+        else{
+          endPeriod = 'Infinity';
+        }
         
         var deferred = $q.defer();
 
-        var date = moment.unix(time)._i;
 
 
 
-
-        $http.get(self.baseUrl + '&q=eventdate:%5B' + time + '+TO+Infinity%5D' + self.params).success(function(response){
+        $http.get(self.baseUrl + '&q=eventdate:%5B' + startTime + '+TO+' + endPeriod + '%5D' + self.params).success(function(response){
           deferred.resolve(response);
         }).error(function(err){
           console.log(err);
@@ -41,8 +48,8 @@ angular.module('bookingApp').factory('contentFarm', function ($http, $q) {
 
     // Public API here
     return {
-      index: function (time) {
-        return content.index(time);
+      index: function (startTime, endTime) {
+        return content.index(startTime, endTime);
       }
     };
   });

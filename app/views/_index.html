@@ -1,18 +1,39 @@
 <section class="index">
-	<h1>Upcoming Shows</h1>
+	<div class="loading" ng-class="{active: loading}">
+		<i class="fa fa-circle-o-notch fa-spin"></i>
+	</div>
+
+	<nav>
+		<h1 class="title">
+			<span class="active">RBMA Show List</span>
+		</h1>
+
+		<div class="search-bar">
+			<i class="fa fa-search"></i>
+			<input type="text" ng-model="searchText" />
+			<input class="date-pick" type="date" ng-model="date.startDate" />
+			<input class="date-pick" type="date" ng-model="date.endDate" />
+		</div>
+	</nav>
+	
 
 	<table>
 		<tr>
-			<th>Date</th>
-			<th>Title</th>
-			<th>City, Country</th>
-			<th>Lineup</th>
+			<th ng-click="orderByField='fields.eventdate'; reverseSort = !reverseSort">Date</th>
+			<th ng-click="orderByField='fields.title'; reverseSort = !reverseSort">Title</th>
+			<th ng-click="orderByField='doc.events[0].country'; reverseSort = !reverseSort">City, Country</th>
+			<th ng-click="orderByField='doc.lineup[0]'; reverseSort = !reverseSort">Headliner</th>
 			<th>Flyer</th>
+			
 		</tr>
 
-		<tr ng-repeat="show in shows.rows | orderBy : 'fields.eventdate'" >
-			<td>{{show.fields.eventdate | date : 'MMM dd, yyyy'}}</td>
+		<tr ng-repeat="show in shows | orderBy : orderByField : reverseSort | filter:searchText" ng-if="show.doc.currentSlug" ng-click="go(show.doc.currentSlug)" >
+			<td class="show-date">{{show.fields.eventdate | date : 'dd MMM, yyyy'}}</td>
 			<td>{{show.fields.title}}</td>
+			<td>{{show.doc.events[0].country}}</td>
+			<td>{{show.doc.lineup[0]}}</td>
+			<td><img ng-src="http://image.redbull.com/rbx00786/0001/1/1280/486/{{show.doc.posterImage.id}}"/></td>
+			
 		</tr>
 	</table>
 </section>

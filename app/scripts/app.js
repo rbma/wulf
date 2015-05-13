@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ui.router',
-    'ngTouch'
+    'ngTouch',
+    'angular-datepicker'
   ])
   .config(function ($urlRouterProvider, $stateProvider) {
     $urlRouterProvider.otherwise('/');

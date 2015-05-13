@@ -7,7 +7,7 @@
 
 
 body{
-	font-family: 'Karla', 'Inconsolata', helvetica, sans-serif;
+	font-family:'Inconsolata', helvetica, sans-serif;
 	-webkit-font-smoothing: antialised;
 }
 
@@ -15,5 +15,13 @@ body{
 ul,ol{
 	list-style-type: none;
 	padding: 0;
+}
+
+h1{
+	@include uppercase();
+	color: $black;
+	font-size: 2em;
+	margin: 0;
+	line-height: 1;
 }
 

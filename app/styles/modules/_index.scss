@@ -1,0 +1,150 @@
+.index{
+	position: relative;
+	width: 100%;
+	height: auto;
+
+	.loading{
+		position:fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: 999;
+		background: white;
+		color: blue;
+		@include display(flex);
+		@include flex-direction(column);
+		@include justify-content(center);
+		@include align-items(center);
+		opacity: 0;
+		@include transition(all .2s linear);
+		&.active{
+			opacity: 1;
+		}
+		i{
+			font-size: 10em;
+		}
+
+	}
+
+	// -------------------------------------------------
+	//
+	// Nav
+	// 
+	// -------------------------------------------------
+	
+	nav{
+		position: fixed;
+		width: 100%;
+		height: 100px;
+		z-index: 99;
+		@include fast();
+		@include linear-gradient(to top, transparent 0%, $black 50%);
+		.title{
+			position: absolute;
+			@include fast();
+			top: 20px;
+			left: 5%;
+			color: gray;
+			span{
+				color: gray;
+				&.active{
+					color: $gray;
+				}
+			}
+		}
+		.search-bar{
+			position: absolute;
+			@include fast();
+			top: 20px;
+			right: 5%;
+			width: 33%;
+			i{
+				display: inline-block;
+				margin: 0;
+				padding: 0;
+				float: right;
+			}
+			input{
+				outline: 0;
+				width: 90%;
+				border: 0;
+				background: transparent;
+				border-bottom: 5px solid $gray;
+				display: inline-block;
+				font-size: 1em;
+				font-family: 'Inconsolata';
+				&.date-pick{
+					border-bottom: 0;
+					width: 40%;
+					display: inline-block;
+					float: left;
+					margin: 15px;
+					color: $gray;
+				}
+			}
+		}
+	}
+
+
+
+	// -------------------------------------------------
+	//
+	// Grid
+	// 
+	// -------------------------------------------------
+	
+	table{
+		top: 150px;
+		width: 90%;
+		margin-left: 5%;
+		border-spacing: 0;
+		margin-bottom: 100px;
+		position: relative;
+		table-layout: fixed;
+
+		tr{
+			th{
+				@include uppercase();
+			}
+			&:first-child{
+				&:hover{
+					background: $black;
+					color: $gray;
+				}
+			}
+			&:hover{
+				background: $gray;
+				color: $black;
+				td{
+					a{
+						color: $black;
+						&:visited{
+							color: $black;
+						}
+					}
+				}
+			}
+			td{
+				padding: 10px;
+				border-bottom: 5px solid $gray;
+				&.show-date{
+					font-weight: bold;
+					@include uppercase();
+				}
+				a{
+					color: $gray;
+					&:visited{
+						color: $gray;
+					}
+				}
+
+				img{
+					height: 100px;
+					width: auto;
+				}
+			}
+		}
+	}
+}
