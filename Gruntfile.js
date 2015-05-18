@@ -408,6 +408,25 @@ module.exports = function (grunt) {
       }
     },
 
+
+    // ------------------------------------------------
+    // Exclude index file to avoid shitty cacheing bug on media house servers
+    //
+    
+    'ftp-deploy':{
+      build:{
+        auth: {
+          host: 'ftp.microsites.redbull.com',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: 'dist/',
+        // dest: 'prod/www/',
+        dest: 'stage/www/',
+        exclusions: ['dist/tmp/']
+      }
+    },
+
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
